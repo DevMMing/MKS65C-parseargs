@@ -1,8 +1,8 @@
-compile:parsearg.o
-	gcc parsearg.o
+compile:parseargs.o
+	gcc parseargs.o
 run:
 	./a.out
 clean:
 	rm *.o ./a.out
-parsearg.o: parsearg.c
-gcc -c parsearg.c
+parseargs.o: parseargs.c
+gcc -c parseargs.c
