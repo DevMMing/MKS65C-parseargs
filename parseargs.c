@@ -4,16 +4,26 @@
 #include <unistd.h>
 
 char ** parse_args( char * line ){
-  char * temp = line;
-  char ** args = &temp;
-  while(line){
-    printf("%s\n", line);
-    printf("%s\n", args[0]);
-    printf("%s\n", args[1]);
-    strsep(&line, " ");
+  char * temp = strchr(line,' ');
+  int count = 0;
+  while(temp != 0){
+    count++;
+    temp = strchr(temp + 1,' ');
   }
-  args = &temp;
-  return args;
+  printf("%d\n",count);
+  char * args[count + 1];
+  for(int i = 0;i < count + 1;i++){
+    args[i] = strsep(&line, " ");
+  }
+  printf("%s\n",args[0]);
+  printf("%s\n",args[1]);
+  printf("%s\n",args[2]);
+  char ** list;
+  
+  printf("%s\n",list[0]);
+  printf("%s\n",list[1]);
+  printf("%s\n",list[2]);
+  return list;
 }
 
 int main(){
@@ -28,8 +38,8 @@ int main(){
   char line[] = "ls -a -l";
   char ** args = parse_args(line);
   printf("%s\n",args[0]);
-  printf("%s\n",args[1]);
-  printf("%s\n",args[2]);
+  //printf("%s\n",args[1]);
+  //printf("%s\n",args[2]);
   //execvp(args[0], args);
   return 0;
 }
