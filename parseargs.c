@@ -25,7 +25,7 @@ char ** parse_args( char * line ){
   printf("%s\n",list[2]);
   return list;
   */
-  int count = 0;
+  int count = 1;
   char * temp = strchr(line,' ');
   while(temp != 0){
     count++;
